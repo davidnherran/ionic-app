@@ -17,9 +17,17 @@ const clearInputs = () => {
   productPrice.value = "";
 };
 
+const isEmpty = str => !str.trim().length;
+
 buttonSave.addEventListener("click", () => {
   const name = productName.value;
   const price = productPrice.value;
+
+  if(isEmpty(name) || price <= 0 || isEmpty(price)){
+      console.log('Not valid data')
+      return;
+  }
+
   createNewProduct(name, price);
   clearInputs();
 });
