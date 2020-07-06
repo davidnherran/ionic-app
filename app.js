@@ -17,15 +17,25 @@ const clearInputs = () => {
   productPrice.value = "";
 };
 
-const isEmpty = str => !str.trim().length;
+const presentAlert = () => {
+  const alert = document.createElement("ion-alert");
+  alert.header = "Invalid Data";
+  alert.subHeader = "Please verify your inputs";
+  alert.message = "Incorrect name or price";
+  alert.buttons = ["Ok"];
+  document.body.appendChild(alert);
+  return alert.present();
+};
+
+const isEmpty = (str) => !str.trim().length;
 
 buttonSave.addEventListener("click", () => {
   const name = productName.value;
   const price = productPrice.value;
 
-  if(isEmpty(name) || price <= 0 || isEmpty(price)){
-      console.log('Not valid data')
-      return;
+  if (isEmpty(name) || price <= 0 || isEmpty(price)) {
+    presentAlert();
+    return;
   }
 
   createNewProduct(name, price);
@@ -33,5 +43,5 @@ buttonSave.addEventListener("click", () => {
 });
 
 buttonCancel.addEventListener("click", () => {
-    clearInputs();
-})
+  clearInputs();
+});
