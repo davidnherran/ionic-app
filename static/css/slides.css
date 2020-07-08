@@ -1,0 +1,26 @@
+ion-content{
+    padding: 0;
+}
+ion-slides {
+    height: 100%;
+  }
+ion-slide h1 {
+    font-size: 1.5em;
+}
+ion-slide p {
+    font-size: 0.8em;
+    text-align: center;
+    color: gray;
+}
+ion-row a {
+    text-decoration: none;
+    font-size: 18px;
+}
+.slide-img {
+    display: flex; 
+    justify-content: center;
+}
+.slide-img img{
+    width: 180px; 
+    height: 180px;
+}
